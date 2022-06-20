@@ -1,57 +1,80 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/fontawesome-free-solid";
-import { useState } from "react";
-import { useCookies } from "react-cookie";
+import { useState, useEffect } from "react";
 
 function Settings() {
-  const [cookies, setCookie] = useCookies(["settings"]);
-  const [europe, setEurope] = useState("");
-  const [health, setHealth] = useState("");
-  const [sport, setSport] = useState("");
-  const [business, setBusiness] = useState("");
-  const [travel, setTravel] = useState("");
+  // Arts settings
+  const [isArtsActive, setArtsActive] = useState(() => {
+    const ArtsData = localStorage.getItem("isArtsActive");
+    return ArtsData ? JSON.parse(ArtsData) : [];
+  });
 
-  const [isEuropeActive, setEuropeActive] = useState(true);
-
-  function europeslider() {
-    console.log("Slider");
-    setEuropeActive(!isEuropeActive);
-    setCookie("Europe", europe, { path: "/" });
+  function artsslider() {
+    setArtsActive(!isArtsActive);
   }
 
-  const [isHealthActive, setHealthActive] = useState(true);
+  useEffect(() => {
+    localStorage.setItem("isArtsActive", JSON.stringify(isArtsActive));
+  }, [isArtsActive]);
+
+  //Health settings
+  const [isHealthActive, setHealthActive] = useState(() => {
+    const HealthData = localStorage.getItem("isHealthActive");
+    return HealthData ? JSON.parse(HealthData) : [];
+  });
 
   function healthslider() {
-    console.log("Slider");
     setHealthActive(!isHealthActive);
-    setCookie("Health", health, { path: "/" });
   }
 
-  const [isSportActive, setSportActive] = useState(true);
+  useEffect(() => {
+    localStorage.setItem("isHealthActive", JSON.stringify(isHealthActive));
+  }, [isHealthActive]);
+
+  //Sport settings
+  const [isSportActive, setSportActive] = useState(() => {
+    const SportData = localStorage.getItem("isSportActive");
+    return SportData ? JSON.parse(SportData) : [];
+  });
 
   function sportslider() {
-    console.log("Slider");
     setSportActive(!isSportActive);
-    setCookie("Sport", sport, { path: "/" });
   }
 
-  const [isBusinessActive, setBusinessActive] = useState(true);
+  useEffect(() => {
+    localStorage.setItem("isSportActive", JSON.stringify(isSportActive));
+  }, [isSportActive]);
+
+  //Business settings
+  const [isBusinessActive, setBusinessActive] = useState(() => {
+    const BusinessData = localStorage.getItem("isBusinessActive");
+    return BusinessData ? JSON.parse(BusinessData) : [];
+  });
 
   function businessslider() {
-    console.log("Slider");
     setBusinessActive(!isBusinessActive);
-    setCookie("Business", business, { path: "/" });
   }
 
-  const [isTravelActive, setTravelActive] = useState(true);
+  useEffect(() => {
+    localStorage.setItem("isBusinessActive", JSON.stringify(isBusinessActive));
+  }, [isBusinessActive]);
+
+  //Travel settings
+  const [isTravelActive, setTravelActive] = useState(() => {
+    const TravelData = localStorage.getItem("isTravelActive");
+    return TravelData ? JSON.parse(TravelData) : [];
+  });
 
   function travelslider() {
-    console.log("Slider");
     setTravelActive(!isTravelActive);
-    setCookie("Travel", travel, { path: "/" });
   }
 
+  useEffect(() => {
+    localStorage.setItem("isTravelActive", JSON.stringify(isTravelActive));
+  }, [isTravelActive]);
+
+  //darkmode settings
   function darkmode() {
     console.log("dark mode");
   }
@@ -72,17 +95,13 @@ function Settings() {
 
       <div className="settings">
         <div className="setting">
-          <h4>EUROPE</h4>
+          <h4>ARTS</h4>
           <div
-            className={
-              isEuropeActive ? "settingslider_active" : "settingslider"
-            }
-            onClick={europeslider}
+            className={isArtsActive ? "settingslider_active" : "settingslider"}
+            onClick={artsslider}
           >
             <div
-              className={
-                isEuropeActive ? "slidercircle_active" : "slidercircle"
-              }
+              className={isArtsActive ? "slidercircle_active" : "slidercircle"}
             ></div>
           </div>
         </div>

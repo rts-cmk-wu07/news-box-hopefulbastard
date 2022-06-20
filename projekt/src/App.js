@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Frontpage from "./frontpage";
 import Settings from "./settings";
 import Archive from "./archive";
-import { useCookies } from "react-cookie";
 
 function App() {
   return (

@@ -39,11 +39,17 @@ h1 {
 }
 
 .newscategory_title {
+  background-color: #fefefe;
   padding: 5px 15px;
-  border: 1px solid #324755;
+  border: 1px solid #eceff0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-transform: uppercase;
+}
+
+.newscategory_title h2 {
+  font-size: 16px;
 }
 
 /* archive */
@@ -66,6 +72,10 @@ h1 {
   margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 400;
+}
+
+.setting h4 {
+  font-size: 16px;
 }
 
 .settingswhiteborder {
