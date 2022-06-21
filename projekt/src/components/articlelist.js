@@ -1,7 +1,3 @@
-import "./App.css";
-import { useState } from "react";
-import Navbar from "./components/navbar";
-import Articlelist from "./components/articlelist";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -11,13 +7,12 @@ import {
   faSuitcase,
   faPlane,
 } from "@fortawesome/fontawesome-free-solid";
+import Article from "./article";
+import { useState } from "react";
 
-const Frontpage = () => {
-  const artstitleicon = faPalette;
-  const sportstitleicon = faDumbbell;
-  const businesstitleicon = faSuitcase;
-  const healthtitleicon = faHeart;
-  const traveltitleicon = faPlane;
+const Articlelist = (props) => {
+  const section = props.section;
+  const icon = props.icon;
 
   const [isartsActive, setartsActive] = useState(() => {
     const ArtsData = localStorage.getItem("isartsActive");
@@ -75,16 +70,39 @@ const Frontpage = () => {
   }
 
   return (
-    <div>
-      <Navbar />
-
-      <Articlelist section={`arts`} icon={faPalette} />
-      <Articlelist section={`health`} icon={faHeart} />
-      <Articlelist section={`sports`} icon={faDumbbell} />
-      <Articlelist section={`business`} icon={faSuitcase} />
-      <Articlelist section={`travel`} icon={faPlane} />
+    <div className="index">
+      <div
+        className={
+          "is" + { section } + "Active" ? "newscategory_active" : "newscategory"
+        }
+      >
+        <div
+          className={
+            "is" + { section } + "SectionActive"
+              ? "opennewscategory"
+              : "closednewscategory"
+          }
+        >
+          <div
+            className={
+              "is" + { section } + "SectionActive"
+                ? "newscategory_title"
+                : "closednewscategory_title"
+            }
+            onClick={{ section } + section}
+          >
+            <FontAwesomeIcon
+              icon={{ icon }}
+              className="fontawesome_titleicon"
+            />
+            <h2 className="articlelist_h2">{section}</h2>
+            <FontAwesomeIcon className="fontawesome" icon={faChevronDown} />
+          </div>
+          <Article section={section} />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Frontpage;
+export default Articlelist;

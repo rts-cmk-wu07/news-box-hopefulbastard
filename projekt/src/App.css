@@ -1,7 +1,7 @@
 /* global */
 
-.App {
-  text-align: center;
+.app {
+  height: 100vh;
 }
 
 nav {
@@ -11,7 +11,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 120px;
-  border-bottom: 1px solid #c8d1d3;
   padding: 0px 15px;
 }
 
@@ -22,12 +21,14 @@ h1 {
 .fontawesome {
   color: #324755;
   font-size: 24px;
+  margin-left: auto;
 }
 
 /* front page */
 
 .index {
   background-color: white;
+  z-index: 10;
 }
 
 .newscategory {
@@ -40,11 +41,11 @@ h1 {
 
 .newscategory_title,
 .closednewscategory_title {
-  background-color: #fefefe;
+  color: #334856;
+  background-color: #ffffff;
   padding: 5px 15px;
   border: 1px solid #eceff0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
 }
@@ -52,10 +53,19 @@ h1 {
 .newscategory_title h2,
 .closednewscategory_title h2 {
   font-size: 16px;
+  padding-left: 10px;
 }
 
-.closednewscategory_title svg {
+.closednewscategory_title .fontawesome {
   transform: rotate(-90deg);
+}
+
+.fontawesome_titleicon {
+  color: #d97d54;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 5px 10px 10px#e5e7e9;
 }
 
 .closednewscategory .article {
@@ -63,36 +73,55 @@ h1 {
 }
 
 .opennewscategory .article {
-  height: 50vh;
+  max-height: 445px;
   overflow: scroll;
 }
 
-.closednewscategory .article article {
+.closednewscategory .article a {
   height: 0px;
   display: none;
-  padding: 5px;
+  padding: 7px;
 }
 
-.article article {
+.article a {
+  text-decoration: none;
+  border-bottom: 1px solid #eceff0;
+  height: 75px;
+  padding: 15px;
   display: flex;
+  overflow: hidden;
+  gap: 10px;
 }
 
-.article article h3 {
-  font-size: 16px;
+.articletext {
+  overflow: hidden;
+}
+
+.article a h3 {
+  color: #334856;
+  font-size: 14px;
+  font-weight: 500;
   text-align: left;
+  margin: 0px;
 }
 
-.article article p {
-  font-size: 16px;
+.article a p {
+  color: #6e8ca0;
+  padding-top: 2px;
+  font-size: 12px;
   text-align: left;
+  margin: 0px;
+  margin-bottom: 20px;
+  font-weight: 200;
 }
 
-.articleimg {
+.article a .articleimg {
   display: inline-block;
-  height: 100px;
-  width: 100px;
+  height: 70px;
+  width: 70px;
   border-radius: 50px;
   object-fit: cover;
+  margin: 2.5px auto;
 }
 
 /* archive */

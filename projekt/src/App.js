@@ -7,7 +7,8 @@ import { useSwipeable } from "react-swipeable";
 
 function App() {
   const refreshswipe = useSwipeable({
-    onSwipedUp: () => window.location.reload(),
+    onSwipedDown: () => window.location.reload(),
+    swipeDuration: 250,
   });
 
   return (

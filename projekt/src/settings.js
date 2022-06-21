@@ -5,74 +5,74 @@ import { useState, useEffect } from "react";
 
 function Settings() {
   // Arts settings
-  const [isArtsActive, setArtsActive] = useState(() => {
-    const ArtsData = localStorage.getItem("isArtsActive");
+  const [isartsActive, setartsActive] = useState(() => {
+    const ArtsData = localStorage.getItem("isartsActive");
     return ArtsData ? JSON.parse(ArtsData) : [];
   });
 
   function artsslider() {
-    setArtsActive(!isArtsActive);
+    setartsActive(!isartsActive);
   }
 
   useEffect(() => {
-    localStorage.setItem("isArtsActive", JSON.stringify(isArtsActive));
-  }, [isArtsActive]);
+    localStorage.setItem("isartsActive", JSON.stringify(isartsActive));
+  }, [isartsActive]);
 
   //Health settings
-  const [isHealthActive, setHealthActive] = useState(() => {
-    const HealthData = localStorage.getItem("isHealthActive");
-    return HealthData ? JSON.parse(HealthData) : [];
+  const [ishealthActive, sethealthActive] = useState(() => {
+    const healthData = localStorage.getItem("ishealthActive");
+    return healthData ? JSON.parse(healthData) : [];
   });
 
   function healthslider() {
-    setHealthActive(!isHealthActive);
+    sethealthActive(!ishealthActive);
   }
 
   useEffect(() => {
-    localStorage.setItem("isHealthActive", JSON.stringify(isHealthActive));
-  }, [isHealthActive]);
+    localStorage.setItem("ishealthActive", JSON.stringify(ishealthActive));
+  }, [ishealthActive]);
 
-  //Sport settings
-  const [isSportActive, setSportActive] = useState(() => {
-    const SportData = localStorage.getItem("isSportActive");
-    return SportData ? JSON.parse(SportData) : [];
+  //Sports settings
+  const [issportsActive, setsportsActive] = useState(() => {
+    const SportsData = localStorage.getItem("issportsActive");
+    return SportsData ? JSON.parse(SportsData) : [];
   });
 
-  function sportslider() {
-    setSportActive(!isSportActive);
+  function sportsslider() {
+    setsportsActive(!issportsActive);
   }
 
   useEffect(() => {
-    localStorage.setItem("isSportActive", JSON.stringify(isSportActive));
-  }, [isSportActive]);
+    localStorage.setItem("issportsActive", JSON.stringify(issportsActive));
+  }, [issportsActive]);
 
   //Business settings
-  const [isBusinessActive, setBusinessActive] = useState(() => {
-    const BusinessData = localStorage.getItem("isBusinessActive");
+  const [isbusinessActive, setbusinessActive] = useState(() => {
+    const BusinessData = localStorage.getItem("isbusinessActive");
     return BusinessData ? JSON.parse(BusinessData) : [];
   });
 
   function businessslider() {
-    setBusinessActive(!isBusinessActive);
+    setbusinessActive(!isbusinessActive);
   }
 
   useEffect(() => {
-    localStorage.setItem("isBusinessActive", JSON.stringify(isBusinessActive));
-  }, [isBusinessActive]);
+    localStorage.setItem("isbusinessActive", JSON.stringify(isbusinessActive));
+  }, [isbusinessActive]);
 
   //Travel settings
-  const [isTravelActive, setTravelActive] = useState(() => {
-    const TravelData = localStorage.getItem("isTravelActive");
+  const [istravelActive, settravelActive] = useState(() => {
+    const TravelData = localStorage.getItem("istravelActive");
     return TravelData ? JSON.parse(TravelData) : [];
   });
 
   function travelslider() {
-    setTravelActive(!isTravelActive);
+    settravelActive(!istravelActive);
   }
 
   useEffect(() => {
-    localStorage.setItem("isTravelActive", JSON.stringify(isTravelActive));
-  }, [isTravelActive]);
+    localStorage.setItem("istravelActive", JSON.stringify(istravelActive));
+  }, [istravelActive]);
 
   //darkmode settings
   function darkmode() {
@@ -97,11 +97,11 @@ function Settings() {
         <div className="setting">
           <h4>ARTS</h4>
           <div
-            className={isArtsActive ? "settingslider_active" : "settingslider"}
+            className={isartsActive ? "settingslider_active" : "settingslider"}
             onClick={artsslider}
           >
             <div
-              className={isArtsActive ? "slidercircle_active" : "slidercircle"}
+              className={isartsActive ? "slidercircle_active" : "slidercircle"}
             ></div>
           </div>
         </div>
@@ -110,26 +110,30 @@ function Settings() {
           <h4>HEALTH</h4>
           <div
             className={
-              isHealthActive ? "settingslider_active" : "settingslider"
+              ishealthActive ? "settingslider_active" : "settingslider"
             }
             onClick={healthslider}
           >
             <div
               className={
-                isHealthActive ? "slidercircle_active" : "slidercircle"
+                ishealthActive ? "slidercircle_active" : "slidercircle"
               }
             ></div>
           </div>
         </div>
 
         <div className="setting">
-          <h4>SPORT</h4>
+          <h4>SPORTS</h4>
           <div
-            className={isSportActive ? "settingslider_active" : "settingslider"}
-            onClick={sportslider}
+            className={
+              issportsActive ? "settingslider_active" : "settingslider"
+            }
+            onClick={sportsslider}
           >
             <div
-              className={isSportActive ? "slidercircle_active" : "slidercircle"}
+              className={
+                issportsActive ? "slidercircle_active" : "slidercircle"
+              }
             ></div>
           </div>
         </div>
@@ -138,13 +142,13 @@ function Settings() {
           <h4>BUSINESS</h4>
           <div
             className={
-              isBusinessActive ? "settingslider_active" : "settingslider"
+              isbusinessActive ? "settingslider_active" : "settingslider"
             }
             onClick={businessslider}
           >
             <div
               className={
-                isBusinessActive ? "slidercircle_active" : "slidercircle"
+                isbusinessActive ? "slidercircle_active" : "slidercircle"
               }
             ></div>
           </div>
@@ -154,13 +158,13 @@ function Settings() {
           <h4>TRAVEL</h4>
           <div
             className={
-              isTravelActive ? "settingslider_active" : "settingslider"
+              istravelActive ? "settingslider_active" : "settingslider"
             }
             onClick={travelslider}
           >
             <div
               className={
-                isTravelActive ? "slidercircle_active" : "slidercircle"
+                istravelActive ? "slidercircle_active" : "slidercircle"
               }
             ></div>
           </div>
