@@ -1,12 +1,35 @@
+/*themes*/
+
+:root {
+  --background: #ffffff;
+  --app-background: #eceff0;
+  --heading: #324755;
+  --body: #6e8ca0;
+  --border: #f3f6f6;
+  --dark-mode-toggle-border: #324755;
+  --settings-heading: #87bcbf;
+}
+
+[data-theme="dark"] {
+  --background: #1b1b1b;
+  --app-background: #252525;
+  --heading: #ffffff;
+  --body: #f3f6f6;
+  --border: #252526;
+  --dark-mode-toggle-border: #ffffff;
+  --settings-heading: #87bcbf;
+}
+
 /* global */
 
 .app {
   height: 100vh;
+  background-color: var(--app-background);
 }
 
 nav {
-  background-color: white;
-  color: #324755;
+  background-color: var(--background);
+  color: var(--heading);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +42,7 @@ h1 {
 }
 
 .fontawesome {
-  color: #324755;
+  color: var(--heading);
   font-size: 24px;
   margin-left: auto;
 }
@@ -27,8 +50,7 @@ h1 {
 /* front page */
 
 .index {
-  background-color: white;
-  z-index: 10;
+  background-color: var(--background);
 }
 
 .newscategory {
@@ -41,10 +63,10 @@ h1 {
 
 .newscategory_title,
 .closednewscategory_title {
-  color: #334856;
-  background-color: #ffffff;
+  color: var(--heading);
+  background-color: var(--background);
   padding: 5px 15px;
-  border: 1px solid #eceff0;
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   text-transform: uppercase;
@@ -63,7 +85,7 @@ h1 {
 .fontawesome_titleicon {
   color: #d97d54;
   padding: 8px;
-  background-color: #ffffff;
+  background-color: var(--background);
   border-radius: 50%;
   box-shadow: 5px 10px 10px#e5e7e9;
 }
@@ -85,7 +107,7 @@ h1 {
 
 .article a {
   text-decoration: none;
-  border-bottom: 1px solid #eceff0;
+  border-bottom: 1px solid var(--border);
   height: 75px;
   padding: 15px;
   display: flex;
@@ -98,7 +120,7 @@ h1 {
 }
 
 .article a h3 {
-  color: #334856;
+  color: var(--heading);
   font-size: 14px;
   font-weight: 500;
   text-align: left;
@@ -106,7 +128,7 @@ h1 {
 }
 
 .article a p {
-  color: #6e8ca0;
+  color: var(--body);
   padding-top: 2px;
   font-size: 12px;
   text-align: left;
@@ -134,7 +156,7 @@ h1 {
 }
 
 .settingsh2 {
-  color: #87bcbf;
+  color: var(--settings-heading);
   font-size: 30px;
   margin-top: 45px;
   margin-bottom: 0px;
@@ -144,6 +166,7 @@ h1 {
   margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 400;
+  color: var(--body);
 }
 
 .setting h4 {
@@ -154,13 +177,14 @@ h1 {
   content: "";
   height: 1px;
   width: 30px;
-  background-color: white;
+  background-color: var(--body);
   margin: auto;
   margin-bottom: 50px;
 }
 
 .settings {
-  background-color: white;
+  background-color: var(--background);
+  color: var(--body);
   border-radius: 20px;
   margin: 15px;
 }
@@ -169,12 +193,12 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  border-bottom: 1px solid #f3f6f6;
+  border-bottom: 1px solid var(--border);
 }
 
 .settingslider,
 .settingslider_active {
-  background-color: #dee3e3;
+  background-color: var(--app-background);
   height: 25px;
   width: 40px;
   border-radius: 15px;
@@ -184,7 +208,7 @@ h1 {
 
 .slidercircle,
 .slidercircle_active {
-  background-color: white;
+  background-color: var(--background);
   height: 22px;
   width: 22px;
   border-radius: 50%;
@@ -193,7 +217,7 @@ h1 {
 }
 
 .settingslider_active {
-  background-color: #87bcbf;
+  background-color: var(--settings-heading);
 }
 
 .slidercircle_active {
@@ -214,6 +238,7 @@ h1 {
   font-weight: 400;
   padding: 15px;
   border-radius: 25px;
-  border: 1px solid #324755;
+  border: 1px solid var(--dark-mode-toggle-border);
+  color: var(--heading);
   margin-top: 50px;
 }

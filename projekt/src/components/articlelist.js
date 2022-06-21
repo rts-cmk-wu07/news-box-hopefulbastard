@@ -73,23 +73,25 @@ const Articlelist = (props) => {
     <div className="index">
       <div
         className={
-          "is" + { section } + "Active" ? "newscategory_active" : "newscategory"
+          "is" + `${section}` + "Active"
+            ? "newscategory_active"
+            : "newscategory"
         }
       >
         <div
           className={
-            "is" + { section } + "SectionActive"
+            "is" + `${section}` + "SectionActive"
               ? "opennewscategory"
               : "closednewscategory"
           }
         >
           <div
             className={
-              "is" + { section } + "SectionActive"
+              "is" + `${section}` + "SectionActive"
                 ? "newscategory_title"
                 : "closednewscategory_title"
             }
-            onClick={{ section } + section}
+            onClick={`${section}` + section}
           >
             <FontAwesomeIcon
               icon={{ icon }}

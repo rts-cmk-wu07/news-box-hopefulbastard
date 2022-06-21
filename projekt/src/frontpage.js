@@ -78,11 +78,11 @@ const Frontpage = () => {
     <div>
       <Navbar />
 
-      <Articlelist section={`arts`} icon={faPalette} />
-      <Articlelist section={`health`} icon={faHeart} />
-      <Articlelist section={`sports`} icon={faDumbbell} />
-      <Articlelist section={`business`} icon={faSuitcase} />
-      <Articlelist section={`travel`} icon={faPlane} />
+      <Articlelist section={`arts`} /*icon={faPalette}*/ />
+      <Articlelist section={`health`} /*icon={faHeart}*/ />
+      <Articlelist section={`sports`} /*icon={faDumbbell}*/ />
+      <Articlelist section={`business`} /*icon={faSuitcase}*/ />
+      <Articlelist section={`travel`} /*icon={faPlane}*/ />
     </div>
   );
 };

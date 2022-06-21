@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/fontawesome-free-solid";
 import { useState, useEffect } from "react";
+import Darkmode from "./components/darkmode";
 
 function Settings() {
   // Arts settings
@@ -73,11 +74,6 @@ function Settings() {
   useEffect(() => {
     localStorage.setItem("istravelActive", JSON.stringify(istravelActive));
   }, [istravelActive]);
-
-  //darkmode settings
-  function darkmode() {
-    console.log("dark mode");
-  }
 
   return (
     <div>
@@ -171,9 +167,7 @@ function Settings() {
         </div>
       </div>
 
-      <p className="darkmodetoggle" onClick={darkmode}>
-        TOGGLE DARK MODE
-      </p>
+      <Darkmode />
     </div>
   );
 }
