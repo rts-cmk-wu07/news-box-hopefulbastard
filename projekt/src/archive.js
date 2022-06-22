@@ -3,11 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faCog } from "@fortawesome/fontawesome-free-solid";
 import Search from "./components/search";
 import { useSwipeable, onSwipedDown } from "react-swipeable";
+import { useState } from "react";
 
 const Archive = () => {
   const refreshswipe = useSwipeable({
     onSwipedDown: () => window.location.reload(),
   });
+
+  const [mapsavedarticles, setMapsavedarticles] = useState([]);
 
   return (
     <div className="archive">
@@ -20,12 +23,10 @@ const Archive = () => {
           <FontAwesomeIcon className="fontawesome" icon={faCog} />
         </Link>
       </nav>
+
       <div className="savedarticle-container">
         <Search />
-        <div className="savedarticle">
-          <h2>Saved article</h2>
-          <p>Lorem ipsum something something text here</p>
-        </div>
+        <div className="savedarticle"></div>
       </div>
     </div>
   );
