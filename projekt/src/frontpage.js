@@ -11,6 +11,7 @@ import {
   faSuitcase,
   faPlane,
 } from "@fortawesome/fontawesome-free-solid";
+import Search from "./components/search";
 
 const Frontpage = () => {
   const artstitleicon = faPalette;
@@ -77,7 +78,7 @@ const Frontpage = () => {
   return (
     <div>
       <Navbar />
-
+      <Search />
       <Articlelist section={`arts`} /*icon={faPalette}*/ />
       <Articlelist section={`health`} /*icon={faHeart}*/ />
       <Articlelist section={`sports`} /*icon={faDumbbell}*/ />

@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import useLocalStorage from "use-local-storage";
 
 const Darkmode = () => {
-  //darkmode settings
+  const [isdarkmodeActive, setdarkmodeActive] = useState(() => {
+    const DarkmodeData = localStorage.getItem("isdarkmodeActive");
+    return DarkmodeData ? JSON.parse(DarkmodeData) : [];
+  });
 
-  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark ? "dark" : "light"
-  );
+  function darkmode() {
+    setdarkmodeActive(!isdarkmodeActive);
+    window.location.reload();
+  }
 
-  const darkmode = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-  };
+  useEffect(() => {
+    localStorage.setItem("isdarkmodeActive", JSON.stringify(isdarkmodeActive));
+  }, [isdarkmodeActive]);
 
   return (
     <p className="darkmodetoggle" onClick={darkmode}>

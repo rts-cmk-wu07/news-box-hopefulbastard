@@ -1,6 +1,6 @@
 /*themes*/
 
-:root {
+.light-theme {
   --background: #ffffff;
   --app-background: #eceff0;
   --heading: #324755;
@@ -8,9 +8,15 @@
   --border: #f3f6f6;
   --dark-mode-toggle-border: #324755;
   --settings-heading: #87bcbf;
+  --search-background: #f0f3f4;
+  --search-body: #9fb2c0;
+  --searchnewsicon: #d0d7d9;
+
+  background-color: var(--app-background);
+  height: 100%;
 }
 
-[data-theme="dark"] {
+.dark-theme {
   --background: #1b1b1b;
   --app-background: #252525;
   --heading: #ffffff;
@@ -18,13 +24,24 @@
   --border: #252526;
   --dark-mode-toggle-border: #ffffff;
   --settings-heading: #87bcbf;
+  --search-background: #383838;
+  --search-body: #a0a0a0;
+  --searchnewsicon: #5c5c5c;
+
+  background-color: var(--app-background);
+  height: 100%;
 }
 
 /* global */
 
-.app {
+#root {
   height: 100vh;
   background-color: var(--app-background);
+}
+
+.app {
+  background-color: var(--app-background);
+  height: 100vh;
 }
 
 nav {
@@ -35,6 +52,7 @@ nav {
   align-items: center;
   height: 120px;
   padding: 0px 15px;
+  border-bottom: 1px solid var(--border);
 }
 
 h1 {
@@ -45,6 +63,45 @@ h1 {
   color: var(--heading);
   font-size: 24px;
   margin-left: auto;
+}
+
+.searchnewsbackground {
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.searchnewsdiv {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: var(--search-background);
+  color: var(--searchnewsicon);
+  width: 100%;
+}
+
+.searchnews {
+  padding: 10px;
+  background-color: var(--search-background);
+  border-radius: 5px;
+  border: none;
+  color: var(--body);
+}
+
+.searchnews::placeholder {
+  color: var(--search-body);
+}
+
+.searchnews:focus {
+  outline: none;
+}
+
+.searchnewsicon {
+  background-color: var(--search-background);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /* front page */
@@ -199,6 +256,7 @@ h1 {
 .settingslider,
 .settingslider_active {
   background-color: var(--app-background);
+  transition: background-color 400ms ease;
   height: 25px;
   width: 40px;
   border-radius: 15px;

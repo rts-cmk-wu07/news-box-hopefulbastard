@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/fontawesome-free-solid";
 import { useState, useEffect } from "react";
 import Darkmode from "./components/darkmode";
+import { useSwipeable, onSwipedDown } from "react-swipeable";
 
 function Settings() {
   // Arts settings
@@ -75,9 +76,13 @@ function Settings() {
     localStorage.setItem("istravelActive", JSON.stringify(istravelActive));
   }, [istravelActive]);
 
+  const refreshswipe = useSwipeable({
+    onSwipedDown: () => window.location.reload(),
+  });
+
   return (
     <div>
-      <nav>
+      <nav className="nav" {...refreshswipe}>
         <Link to="/">
           <FontAwesomeIcon className="fontawesome" icon={faChevronLeft} />
         </Link>

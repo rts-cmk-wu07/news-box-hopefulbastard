@@ -4,24 +4,25 @@ import Frontpage from "./frontpage";
 import Settings from "./settings";
 import Archive from "./archive";
 import { useSwipeable } from "react-swipeable";
-import useLocalStorage from "use-local-storage";
+import { useEffect, useState } from "react";
 
 function App() {
-  const refreshswipe = useSwipeable({
-    onSwipedDown: () => window.location.reload(),
-    swipeDuration: 250,
+  const [isdarkmodeActive, setdarkmodeActive] = useState(() => {
+    const DarkmodeData = localStorage.getItem("isdarkmodeActive");
+    return DarkmodeData ? JSON.parse(DarkmodeData) : [];
   });
 
-  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
+  function darkmode() {
+    setdarkmodeActive(!isdarkmodeActive);
+  }
 
-  const darkmode = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(theme);
-  };
+  useEffect(() => {
+    localStorage.setItem("isdarkmodeActive", JSON.stringify(isdarkmodeActive));
+  }, [isdarkmodeActive]);
 
   return (
     <BrowserRouter>
-      <div className="app" {...refreshswipe} data-theme={theme}>
+      <div className={isdarkmodeActive ? "dark-theme" : "light-theme"}>
         <Routes>
           <Route path="/" element={<Frontpage />}></Route>
           <Route path="/settings" element={<Settings />}></Route>
